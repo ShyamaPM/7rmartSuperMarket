@@ -4,11 +4,13 @@ import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LoginTest extends Base
 {
-	@Test
+	@BeforeMethod
 	public void verifyTheUserAbleToLoginWithValidCredentials()
 	{
 		String userName = "admin";
@@ -30,8 +32,8 @@ public class LoginTest extends Base
 		loginPage.enterUsernameOnUsernameField(userName);
 		loginPage.enterPasswrodOnPasswrodField(password);
 		loginPage.clickOnSignInButton();
-		boolean isInvalidUserNameorPasswordDisplayed = driver.findElement(By.xpath("//div[contains(@class,'-dismissible')]")).isDisplayed();
-		assertTrue(isInvalidUserNameorPasswordDisplayed, "The enter username and password is correct");
+		boolean isAlertMessageDisplayed = loginPage.isAlertMessageDisplayedAfterEnteringInvalidCredentials();
+		assertTrue(isAlertMessageDisplayed, "User able to navigate to homepage");
 	}
 
 	@Test
@@ -39,14 +41,12 @@ public class LoginTest extends Base
 	{
 		String userName = "Test";
 		String password = "admin";
-		WebElement userNameTextBox = driver.findElement(By.xpath("//input[@name='username']"));
-		userNameTextBox.sendKeys(userName);
-		WebElement passwordTextBox = driver.findElement(By.xpath("//input[@name='password']"));
-		passwordTextBox.sendKeys(password);
-		WebElement signInButton = driver.findElement(By.xpath("//button[@type='submit']"));
-		signInButton.click();
-		boolean isInvalidUserNameorPasswordDisplayed = driver.findElement(By.xpath("//div[contains(@class,'-dismissible')]")).isDisplayed();
-		assertTrue(isInvalidUserNameorPasswordDisplayed, "The enter username and password is correct");
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.enterUsernameOnUsernameField(userName);
+		loginPage.enterPasswrodOnPasswrodField(password);
+		loginPage.clickOnSignInButton();
+		boolean isAlertMessageDisplayed = loginPage.isAlertMessageDisplayedAfterEnteringInvalidCredentials();
+		assertTrue(isAlertMessageDisplayed, "User able to navigate to homepage");
 	}
 	
 	@Test
@@ -54,13 +54,11 @@ public class LoginTest extends Base
 	{
 		String userName = "Tester";
 		String password = "test";
-		WebElement userNameTextBox = driver.findElement(By.xpath("//input[@name='username']"));
-		userNameTextBox.sendKeys(userName);
-		WebElement passwordTextBox = driver.findElement(By.xpath("//input[@name='password']"));
-		passwordTextBox.sendKeys(password);
-		WebElement signInButton = driver.findElement(By.xpath("//button[@type='submit']"));
-		signInButton.click();
-		boolean isInvalidUserNameorPasswordDisplayed = driver.findElement(By.xpath("//div[contains(@class,'-dismissible')]")).isDisplayed();
-		assertTrue(isInvalidUserNameorPasswordDisplayed, "The enter username and password is correct");
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.enterUsernameOnUsernameField(userName);
+		loginPage.enterPasswrodOnPasswrodField(password);
+		loginPage.clickOnSignInButton();
+		boolean isAlertMessageDisplayed = loginPage.isAlertMessageDisplayedAfterEnteringInvalidCredentials();
+		assertTrue(isAlertMessageDisplayed, "User able to navigate to homepage");
 	}
 }

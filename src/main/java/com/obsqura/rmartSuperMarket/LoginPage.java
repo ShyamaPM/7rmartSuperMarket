@@ -18,6 +18,7 @@ public class LoginPage
 	@FindBy(xpath = "//input[@name='password']") private WebElement passwordField;
 	@FindBy(xpath = "//button[@type='submit']") private WebElement signInButton;
 	@FindBy(xpath = "//li[text()='Dashboard']") private WebElement homePage;
+	@FindBy(xpath = "//div[contains(@class,'-dismissible')]") private WebElement alertMessage;
 	 
 	public void enterUsernameOnUsernameField(String userName)
 	{
@@ -39,6 +40,9 @@ public class LoginPage
 		return homePage.isDisplayed();
 	}
 	
-	
+	public boolean isAlertMessageDisplayedAfterEnteringInvalidCredentials()
+	{
+		return alertMessage.isDisplayed();
+	}
 
 }
