@@ -16,8 +16,15 @@ public class VerifyUsersTest extends LoginTest
 	@Test
 	public void verifyTheUserExistsInTheVerifyUsersList()
 	{
-		driver.navigate().to("https://groceryapp.uniqassosiates.com/admin/verify-users");
+		//driver.navigate().to("https://groceryapp.uniqassosiates.com/admin/verify-users");
 		String name = "Chinchu Balachandran";
+		
+		String userName = ExcelUtility.getString(1, 0,"LoginPage");
+		String password = ExcelUtility.getString(1, 0,"LoginPage");
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.enterUsernameOnUsernameField(userName).enterPasswrodOnPasswrodField(password).clickOnSignInButton();
+		MenuSelectionPage menuSelectionPage = new MenuSelectionPage(driver);
+		menuSelectionPage.clickOnVerifyUsers();
 		VerifyUsersPage verifyUsersPage = new VerifyUsersPage(driver);
 		verifyUsersPage.clickOnSearchBox();
 		verifyUsersPage.enterNameinSearchField(name);
