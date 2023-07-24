@@ -1,24 +1,19 @@
 package com.obsqura.rmartSuperMarket;
 
 import static org.testng.Assert.assertTrue;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import utilities.ExcelUtility;
 
 public class LoginTest extends Base
 {
-	@BeforeMethod
+	@Test
 	public void verifyTheUserAbleToLoginWithValidCredentials()
 	{
-		String userName = "admin";
-		String password = "admin";
+		String userName = ExcelUtility.getString(1, 0,"LoginPage");
+		String password = ExcelUtility.getString(1, 0,"LoginPage");
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.enterUsernameOnUsernameField(userName);
-		loginPage.enterPasswrodOnPasswrodField(password);
-		loginPage.clickOnSignInButton();
+		loginPage.enterUsernameOnUsernameField(userName).enterPasswrodOnPasswrodField(password).clickOnSignInButton();
 		boolean isNavigatedToHomePage = loginPage.isHomePageDisplayed();
 		assertTrue(isNavigatedToHomePage,"Not navigated to homepage");
 	}
@@ -26,8 +21,8 @@ public class LoginTest extends Base
 	@Test
 	public void verifyTheUserCannotLoginWithValidUserNameandInvalidPassword()
 	{
-		String userName = "admin";
-		String password = "test";
+		String userName = ExcelUtility.getString(1, 0,"LoginPage");
+		String password = ExcelUtility.getString(2, 0,"LoginPage");
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.enterUsernameOnUsernameField(userName);
 		loginPage.enterPasswrodOnPasswrodField(password);
@@ -39,8 +34,8 @@ public class LoginTest extends Base
 	@Test
 	public void verifyTheUserCannotLoginWithInvalidUserNameandValidPassword()
 	{
-		String userName = "Test";
-		String password = "admin";
+		String userName = ExcelUtility.getString(2, 0,"LoginPage");
+		String password = ExcelUtility.getString(1, 0,"LoginPage");
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.enterUsernameOnUsernameField(userName);
 		loginPage.enterPasswrodOnPasswrodField(password);

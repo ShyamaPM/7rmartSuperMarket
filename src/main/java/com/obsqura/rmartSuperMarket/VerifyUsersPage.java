@@ -18,7 +18,7 @@ public class VerifyUsersPage {
 	@FindBy (xpath = "//a[contains(@class,'btn-rounded')]") private WebElement searchBox;
 	@FindBy ( xpath = "//input[@id='un']") private WebElement nameTextField;
 	@FindBy (xpath = "//button[@name='Search']") private WebElement searchButton;
-	@FindBy (xpath = "//table[contains(@class,'table-bordered')]//td") private WebElement tableValues;
+	@FindBy (xpath = "//table[contains(@class,'table-bordered')]//td") public WebElement tableValues;
 	
 	
 	public void clickOnSearchBox()
@@ -36,9 +36,10 @@ public class VerifyUsersPage {
 		searchButton.click();
 	}
 	
-	public boolean isTheSearcNameExistsInTheVerifyUsersList() 
+	public String isTheSearcNameExistsInTheVerifyUsersList() 
 	{
-		return tableValues.isDisplayed();
+		return tableValues.getText();
 		
 	}
+	
 }

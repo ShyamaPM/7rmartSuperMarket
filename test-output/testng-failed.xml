@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.obsqura.rmartSuperMarket.VerifyUsersTest">
+      <class name="com.obsqura.rmartSuperMarket.MenuSelectionTest">
         <methods>
           <include name="browserQuit"/>
           <include name="initializeBrowser"/>
-          <include name="checkingSearchFunctioanlity"/>
-          <include name="verifyTheUserAbleToLoginWithValidCredentials"/>
+          <include name="menuSelection"/>
         </methods>
-      </class> <!-- com.obsqura.rmartSuperMarket.VerifyUsersTest -->
+      </class> <!-- com.obsqura.rmartSuperMarket.MenuSelectionTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

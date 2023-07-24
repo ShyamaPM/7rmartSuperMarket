@@ -20,19 +20,22 @@ public class LoginPage
 	@FindBy(xpath = "//li[text()='Dashboard']") private WebElement homePage;
 	@FindBy(xpath = "//div[contains(@class,'-dismissible')]") private WebElement alertMessage;
 	 
-	public void enterUsernameOnUsernameField(String userName)
+	public LoginPage enterUsernameOnUsernameField(String userName)
 	{
 		userNameFiled.sendKeys(userName);
+		return this;
 	}
 	
-	public void enterPasswrodOnPasswrodField(String password)
+	public LoginPage enterPasswrodOnPasswrodField(String password)
 	{
 		passwordField.sendKeys(password);
+		return this;
 	}
 	
-	public void clickOnSignInButton()
+	public LoginPage clickOnSignInButton()
 	{
 		signInButton.click();
+		return this;
 	}
 	
 	public boolean isHomePageDisplayed()
