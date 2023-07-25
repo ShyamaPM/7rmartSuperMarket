@@ -14,10 +14,10 @@ public class LoginPage
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath = "//input[@name='username']") private WebElement userNameFiled;
-	@FindBy(xpath = "//input[@name='password']") private WebElement passwordField;
-	@FindBy(xpath = "//button[@type='submit']") private WebElement signInButton;
-	@FindBy(xpath = "//li[text()='Dashboard']") private WebElement homePage;
+	@FindBy(xpath = "//input[@name='username']") WebElement userNameFiled;
+	@FindBy(xpath = "//input[@name='password']") WebElement passwordField;
+	@FindBy(xpath = "//button[@type='submit']") WebElement signInButton;
+	@FindBy(xpath = "//li[text()='Dashboard']") WebElement homePage;
 	@FindBy(xpath = "//div[contains(@class,'-dismissible')]") private WebElement alertMessage;
 	 
 	public LoginPage enterUsernameOnUsernameField(String userName)

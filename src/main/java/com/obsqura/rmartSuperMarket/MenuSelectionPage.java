@@ -2,8 +2,12 @@ package com.obsqura.rmartSuperMarket;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.xpath.XPath;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -17,7 +21,8 @@ public class MenuSelectionPage
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy( xpath = "//nav[@class='mt-2']//p") List<WebElement> menu;
+	@FindAll(@FindBy(xpath = "//nav[@class='mt-2']//p")) List<WebElement> menuList;
+	//( xpath = "//nav[@class='mt-2']//p") List<WebElement> menu;
 	@FindBy(xpath = "//li[@class='nav-item']//p[text() ='Dashboard']") private WebElement dashBoard;
 	@FindBy(xpath = "//i[contains(@class,'fa-shopping-basket')]") private WebElement manageOrders;
 	@FindBy(xpath = "//li[@class='nav-item']//p[text() ='groceries']") private WebElement groceries;
@@ -38,14 +43,16 @@ public class MenuSelectionPage
 	@FindBy(xpath = "//i[contains(@class,'sidebar-item-icon')]") private WebElement settings;
 	
 	
-	public void toGetAllTheSubMenus()
+	public void toGetAllTheSubMenus(String category)
 	{
-		List<String> listOfMenu = new ArrayList<>();
-		
-		for(WebElement menuList:menu)
+		for(WebElement menu:menuList)
 		{
-			String getMenuText = menuList.getText();
-			listOfMenu.add(getMenuText);
+
+			String getMenuText = menu.getText();
+			if(getMenuText.equals(category))
+			{
+				menu.click();
+			}
 		}
 	}
 	public void clickOnDashBoard()

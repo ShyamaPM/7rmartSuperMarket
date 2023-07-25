@@ -5,6 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.ExcelUtility;
+import utilities.GeneralUtility;
+import utilities.PageUtility;
+import utilities.UploadFileUtility;
+
 public class MobileSliderPage 
 {
 	 public WebDriver driver;
@@ -16,9 +21,10 @@ public class MobileSliderPage
 		}
 		
 		@FindBy (xpath = "//a[@onclick='click_button(1)']") private WebElement newButton;
-		@FindBy (xpath = "//select[@id='cat_id']")public WebElement categoryDropDown;
-		@FindBy(xpath = "//button[@name='create']") private WebElement saveButton;
-		@FindBy(xpath = "//i[@class='icon fas fa-check']") private WebElement alertMessage;
+		@FindBy (xpath = "//select[@id='cat_id']")private WebElement categoryDropDown;
+		@FindBy (xpath = "//button[@name='create']") private WebElement saveButton;
+		@FindBy (xpath = "//input[@id='main_img']") private WebElement chooseFileButton;
+		@FindBy (xpath = "//i[@class='icon fas fa-check']") private WebElement alertMessage;
 		
 		
 		public void clickOnNewButton()
@@ -32,6 +38,18 @@ public class MobileSliderPage
 		public void clickOnSaveButton()
 		{
 			saveButton.click();
+		}
+		
+		public void selectValueFromCategoryDropDown()
+		{
+			PageUtility pageUtility = new PageUtility();
+			pageUtility.selectDropdownbyText(categoryDropDown,ExcelUtility.getString(0, 0,"MobileSlider"));
+		}
+		
+		public void uploadFileByClickingOnChooseFileButton()
+		{
+			UploadFileUtility uploadFileUtility = new UploadFileUtility();
+			uploadFileUtility.fileUploadUsingSendKeys(chooseFileButton,GeneralUtility.IMAGEFILEFORMANAGECATEGORYCATEGORYPAGE);
 		}
 		
 		public boolean isSuccessAlertMessageDisplayed()
