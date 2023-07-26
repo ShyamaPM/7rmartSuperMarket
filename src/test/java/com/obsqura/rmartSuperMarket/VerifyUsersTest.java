@@ -1,12 +1,6 @@
 package com.obsqura.rmartSuperMarket;
 
 import static org.testng.Assert.assertEquals;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import utilities.ExcelUtility;

@@ -1,22 +1,60 @@
 package com.obsqura.rmartSuperMarket;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import utilities.GeneralUtility;
+import utilities.WaitUtility;
 
 public class Base {
 	public WebDriver driver;
+	public Properties prop;
+	public FileInputStream fs;
 	
 	@BeforeMethod
-	public void initializeBrowser()
+	@Parameters("browser")
+	public void initializeBrowser(String browser) throws Exception
 	{
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\abhij\\OneDrive\\Documents\\Eclipse_Workspace\\7rmartSuperMarket\\src\\main\\java\\resources\\chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.get("https://groceryapp.uniqassosiates.com/admin/login");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		try 
+		{
+			prop = new Properties();
+			fs = new FileInputStream(GeneralUtility.CONFIGfILE);
+			prop.load(fs);
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		if (browser.equalsIgnoreCase("firefox")) {
+			driver = WebDriverManager.firefoxdriver().create();
+
+		}
+		else if (browser.equalsIgnoreCase("chrome")) {
+			driver = WebDriverManager.chromedriver().create();
+
+		}
+
+		else if (browser.equalsIgnoreCase("edge")) 
+		{
+			driver = WebDriverManager.edgedriver().create();
+		} 
+		else 
+		{
+			throw new Exception("Browser is not correct");
+		}
+		driver.get(prop.getProperty("url"));
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WaitUtility.IMPLICIT_WAIT));
 	}
 	
 	@AfterMethod

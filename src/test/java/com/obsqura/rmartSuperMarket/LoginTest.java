@@ -1,15 +1,12 @@
 package com.obsqura.rmartSuperMarket;
 
 import static org.testng.Assert.assertTrue;
-
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import utilities.ExcelUtility;
 
 public class LoginTest extends Base
 {
-	@BeforeMethod
+	@Test
 	public void verifyTheUserAbleToLoginWithValidCredentials()
 	{
 		String userName = ExcelUtility.getString(1, 0,"LoginPage");
@@ -58,4 +55,5 @@ public class LoginTest extends Base
 		boolean isAlertMessageDisplayed = loginPage.isAlertMessageDisplayedAfterEnteringInvalidCredentials();
 		assertTrue(isAlertMessageDisplayed, "User able to navigate to homepage");
 	}
+	
 }

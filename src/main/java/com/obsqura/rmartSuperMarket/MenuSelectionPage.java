@@ -1,10 +1,6 @@
 package com.obsqura.rmartSuperMarket;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.xml.xpath.XPath;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -22,7 +18,6 @@ public class MenuSelectionPage
 	}
 
 	@FindAll(@FindBy(xpath = "//nav[@class='mt-2']//p")) List<WebElement> menuList;
-	//( xpath = "//nav[@class='mt-2']//p") List<WebElement> menu;
 	@FindBy(xpath = "//li[@class='nav-item']//p[text() ='Dashboard']") private WebElement dashBoard;
 	@FindBy(xpath = "//i[contains(@class,'fa-shopping-basket')]") private WebElement manageOrders;
 	@FindBy(xpath = "//li[@class='nav-item']//p[text() ='groceries']") private WebElement groceries;
