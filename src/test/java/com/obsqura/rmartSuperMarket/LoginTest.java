@@ -1,7 +1,11 @@
 package com.obsqura.rmartSuperMarket;
 
 import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+
 import utilities.ExcelUtility;
 
 public class LoginTest extends Base
@@ -17,13 +21,15 @@ public class LoginTest extends Base
 		assertTrue(isNavigatedToHomePage,"Not navigated to homepage");
 	}
 	
+	
 	@Test
-	public void verifyTheUserCannotLoginWithValidUserNameandInvalidPassword()
+	@Parameters("password")
+	public void verifyTheUserCannotLoginWithValidUserNameandInvalidPassword(String password)
 	{
-		String userName = ExcelUtility.getString(1, 0,"LoginPage");
-		String password = ExcelUtility.getString(2, 0,"LoginPage");
+		String username = ExcelUtility.getString(1, 0,"LoginPage");
+		//String password = ExcelUtility.getString(2, 0,"LoginPage");
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.enterUsernameOnUsernameField(userName);
+		loginPage.enterUsernameOnUsernameField(username);
 		loginPage.enterPasswrodOnPasswrodField(password);
 		loginPage.clickOnSignInButton();
 		boolean isAlertMessageDisplayed = loginPage.isAlertMessageDisplayedAfterEnteringInvalidCredentials();

@@ -1,6 +1,8 @@
 package com.obsqura.rmartSuperMarket;
 
 import java.util.List;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -31,6 +33,7 @@ public class MenuSelectionPage
 	@FindBy(xpath = "//i[contains(@class,'window-restore')]") private WebElement manageSlider;
 	@FindBy(xpath = "//i[contains(@class,'window-minimize')]") private WebElement mobileSlider;
 	@FindBy(xpath = "//i[contains(@class,'list-alt')]") private WebElement manageCategory;
+	@FindBy(xpath = "(//i[contains(@class,'fa-circle')])[13]") private WebElement categorySubMenu;
 	@FindBy(xpath = "//i[contains(@class,'fa-cubes')]") private WebElement manageOfferCode;
 	@FindBy(xpath = "//i[contains(@class,'user-plus')]") private WebElement manageDeliveryBoy;
 	@FindBy(xpath = "//i[contains(@class,'credit-card')]") private WebElement managePaymentMethod;
@@ -101,6 +104,11 @@ public class MenuSelectionPage
 	public void clickOnManageCategory()
 	{
 		manageCategory.click();
+	}
+	public void clickOnCategorySubMenuOfManageCategory()
+	{
+		JavascriptExecutor j = (JavascriptExecutor)driver; j.executeScript("scroll(0,500)");
+		categorySubMenu.click();
 	}
 	public void clickOnManageOfferCode() 
 	{
