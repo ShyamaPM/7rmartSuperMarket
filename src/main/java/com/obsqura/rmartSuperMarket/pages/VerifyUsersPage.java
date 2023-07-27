@@ -1,17 +1,16 @@
-package com.obsqura.rmartSuperMarket;
+package com.obsqura.rmartSuperMarket.pages;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
-public class VerifyUsersPage {
-	WebDriver driver;
+public class VerifyUsersPage 
+{
+	public WebDriver driver;
 	
 	public VerifyUsersPage(WebDriver driver) 
 	{
@@ -33,7 +32,7 @@ public class VerifyUsersPage {
 
 	public void enterNameinSearchField(String name)
 	{
-	nameTextField.sendKeys(name);
+		nameTextField.sendKeys(name);
 	}
 	
 	public void clickOnSearchButton()
@@ -58,11 +57,6 @@ public class VerifyUsersPage {
 	
 	public String isTheSearcNameExistsInTheVerifyUsersList() 
 	{
-		return tableValues.getText();
-		
-	}
-	
-	
-	
-	
+		return tableValues.getText();	
+	}	
 }

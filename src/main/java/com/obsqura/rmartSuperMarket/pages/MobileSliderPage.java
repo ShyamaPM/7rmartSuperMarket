@@ -1,14 +1,14 @@
-package com.obsqura.rmartSuperMarket;
+package com.obsqura.rmartSuperMarket.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import utilities.ExcelUtility;
 import utilities.GeneralUtility;
 import utilities.PageUtility;
 import utilities.UploadFileUtility;
+import utilities.WaitUtility;
 
 public class MobileSliderPage 
 {
@@ -37,6 +37,8 @@ public class MobileSliderPage
 		}
 		public void clickOnSaveButton()
 		{
+			WaitUtility waitUtility = new WaitUtility();
+			waitUtility.waitForElementClickable(driver,saveButton);
 			saveButton.click();
 		}
 		

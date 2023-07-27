@@ -1,8 +1,10 @@
-package com.obsqura.rmartSuperMarket;
+package com.obsqura.rmartSuperMarket.testscript;
 
 import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
-
+import com.obsqura.rmartSuperMarket.pages.LoginPage;
+import com.obsqura.rmartSuperMarket.pages.MenuSelectionPage;
+import com.obsqura.rmartSuperMarket.pages.VerifyUsersPage;
 import utilities.ExcelUtility;
 
 public class VerifyUsersTest extends Base
@@ -44,7 +46,6 @@ public class VerifyUsersTest extends Base
 		verifyUsersPage.enterNameinSearchField(name);
 		verifyUsersPage.isTheSearcNameExistsInTheVerifyUsersList(name, false);
 		verifyUsersPage.clickOnSearchButton();
-		
 	}
 
 }

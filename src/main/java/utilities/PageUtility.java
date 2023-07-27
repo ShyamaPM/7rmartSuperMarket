@@ -2,7 +2,6 @@ package utilities;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -68,7 +67,7 @@ public class PageUtility
 	public void scrollBy(WebDriver driver) 
 	{
 		JavascriptExecutor Js1 = (JavascriptExecutor) driver;
-		Js1.executeScript("window.scrollBy(0,2500)");
+		Js1.executeScript("window.scrollBy(0,500)");
 	}
 
 	public void scrollToElement(WebDriver driver, WebElement element) 

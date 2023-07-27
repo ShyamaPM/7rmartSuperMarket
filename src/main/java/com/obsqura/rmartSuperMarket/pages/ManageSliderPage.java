@@ -1,17 +1,16 @@
-package com.obsqura.rmartSuperMarket;
+package com.obsqura.rmartSuperMarket.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import utilities.ExcelUtility;
 import utilities.GeneralUtility;
 import utilities.UploadFileUtility;
+import utilities.WaitUtility;
 
 public class ManageSliderPage 
 {
-
 	public WebDriver driver;
 	
 	public ManageSliderPage(WebDriver driver) 
@@ -42,12 +41,12 @@ public class ManageSliderPage
 	}
 	public void clickOnSaveButton()
 	{
+		WaitUtility waitUtility = new WaitUtility();
+		waitUtility.waitForElementClickable(driver,saveButton);
 		saveButton.click();
 	}
 	public boolean successalertMessageDisplay() 
 	{
 		return alertMessage.isDisplayed();
 	}
-	
-
 }

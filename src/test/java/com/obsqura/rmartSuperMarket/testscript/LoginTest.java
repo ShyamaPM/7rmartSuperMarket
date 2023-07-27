@@ -1,11 +1,9 @@
-package com.obsqura.rmartSuperMarket;
+package com.obsqura.rmartSuperMarket.testscript;
 
 import static org.testng.Assert.assertTrue;
-
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-
+import com.obsqura.rmartSuperMarket.pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends Base
@@ -20,7 +18,6 @@ public class LoginTest extends Base
 		boolean isNavigatedToHomePage = loginPage.isHomePageDisplayed();
 		assertTrue(isNavigatedToHomePage,"Not navigated to homepage");
 	}
-	
 	
 	@Test
 	@Parameters("password")

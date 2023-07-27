@@ -1,7 +1,6 @@
 package utilities;
 
 import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -162,7 +161,7 @@ public class WaitUtility {
 		((FluentWait<WebDriver>) fluentWait).withTimeout(Duration.ofSeconds(EXPLICIT_WAIT));
 		((FluentWait<WebDriver>) fluentWait).pollingEvery(Duration.ofSeconds(EXPLICIT_WAIT));
 		((FluentWait<WebDriver>) fluentWait).ignoring(NoSuchElementException.class);
-	fluentWait.until(ExpectedConditions.elementToBeClickable(target));
+		fluentWait.until(ExpectedConditions.elementToBeClickable(target));
 	}
 
 	public void fluentwaitForElementIsPresent(WebDriver driver, By target) 

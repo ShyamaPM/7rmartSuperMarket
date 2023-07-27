@@ -1,9 +1,10 @@
-package com.obsqura.rmartSuperMarket;
+package com.obsqura.rmartSuperMarket.testscript;
 
 import static org.testng.Assert.assertTrue;
-
 import org.testng.annotations.Test;
-
+import com.obsqura.rmartSuperMarket.pages.LoginPage;
+import com.obsqura.rmartSuperMarket.pages.ManageCategoryPage;
+import com.obsqura.rmartSuperMarket.pages.MenuSelectionPage;
 import utilities.ExcelUtility;
 
 public class ManageCategoryTest extends Base
@@ -21,10 +22,7 @@ public class ManageCategoryTest extends Base
 		menuSelectionPage.clickOnCategorySubMenuOfManageCategory();
 		
 		ManageCategoryPage manageCategoryPage = new ManageCategoryPage(driver);
-		manageCategoryPage.clickOnNewButton();
-		manageCategoryPage.enterValueInCategoryField();
-		manageCategoryPage.clickOnSelectGroup();
-		manageCategoryPage.uploadFile();
+		manageCategoryPage.clickOnNewButton().enterValueInCategoryField().clickOnSelectGroup().uploadFile();
 		manageCategoryPage.clickOnNoRadioButtonOfShowOnTopMenuField();
 		manageCategoryPage.clickOnNoRadioButtonOfShowOnLeftMenuField();
 		manageCategoryPage.clickOnSaveButton();

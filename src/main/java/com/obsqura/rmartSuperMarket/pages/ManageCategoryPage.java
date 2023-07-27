@@ -1,21 +1,18 @@
-package com.obsqura.rmartSuperMarket;
+package com.obsqura.rmartSuperMarket.pages;
 
-import java.time.Duration;
-
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import utilities.ExcelUtility;
 import utilities.GeneralUtility;
+import utilities.PageUtility;
 import utilities.UploadFileUtility;
 import utilities.WaitUtility;
 
 public class ManageCategoryPage 
 {
-public WebDriver driver;
+	public WebDriver driver;
 	
 	public ManageCategoryPage(WebDriver driver) 
 	{
@@ -32,39 +29,45 @@ public WebDriver driver;
 	@FindBy(xpath = "//button[@name='create']") private WebElement saveButton;
 	@FindBy(xpath = "//div[contains(@class,'alert-dismissible')]") private WebElement alertMessage;
 	
-	public void clickOnNewButton() 
+	public ManageCategoryPage clickOnNewButton() 
 	{
-		newButton.click();	
+		newButton.click();
+		return this;
 	}
-	public void enterValueInCategoryField()
+	public ManageCategoryPage enterValueInCategoryField()
 	{
 		categoryTextField.sendKeys(ExcelUtility.getString(0, 0,"ManageCategory"));
+		return this;
 	}
-	public void clickOnSelectGroup() 
+	public ManageCategoryPage clickOnSelectGroup() 
 	{
 		selectDiscount.click();
+		return this;
 	}
-	public void uploadFile() 
+	public ManageCategoryPage uploadFile() 
 	{
 		UploadFileUtility uploadFileUtility = new UploadFileUtility();
 		uploadFileUtility.fileUploadUsingSendKeys(chooseFileButton,GeneralUtility.IMAGEFILEFORMANAGECATEGORYCATEGORYPAGE);
+		return this;
 	}
 	public void clickOnNoRadioButtonOfShowOnTopMenuField() 
 	{
-		JavascriptExecutor j = (JavascriptExecutor)driver; 
-		j.executeScript("scroll(0,500)");
+		PageUtility pageUtility = new PageUtility();
+		pageUtility.scrollBy(driver);
 		showOnTopMenuNoRadioButton.click();
 	}
 	public void clickOnNoRadioButtonOfShowOnLeftMenuField() 
 	{
+		PageUtility pageUtility = new PageUtility();
+		pageUtility.scrollBy(driver);
 		WaitUtility waitUtility = new WaitUtility();
 		waitUtility.waitForElementClickable(driver,showOnLeftMenuNoRadioButton);
 		showOnLeftMenuNoRadioButton.click();
 	}
 	public void clickOnSaveButton() 
 	{
-		JavascriptExecutor j = (JavascriptExecutor)driver; 
-		j.executeScript("scroll(0,500)");
+		PageUtility pageUtility = new PageUtility();
+		pageUtility.scrollBy(driver);
 		WaitUtility waitUtility = new WaitUtility();
 		waitUtility.waitForElementClickable(driver,saveButton);
 		saveButton.click();

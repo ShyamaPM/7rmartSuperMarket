@@ -1,5 +1,8 @@
-package com.obsqura.rmartSuperMarket;
+package com.obsqura.rmartSuperMarket.testscript;
+
 import org.testng.annotations.Test;
+import com.obsqura.rmartSuperMarket.pages.LoginPage;
+import com.obsqura.rmartSuperMarket.pages.MenuSelectionPage;
 import utilities.ExcelUtility;
 
 public class MenuSelectionTest extends Base
@@ -31,7 +34,6 @@ public class MenuSelectionTest extends Base
 		menuSelectionPage.clickOnManagePaymentMethod();
 		menuSelectionPage.clickOnAdminUsers();
 		menuSelectionPage.clickOnSettings();
-		
 	}
 
 }

@@ -1,16 +1,13 @@
-package com.obsqura.rmartSuperMarket;
+package com.obsqura.rmartSuperMarket.testscript;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.time.Duration;
 import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
-
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utilities.GeneralUtility;
 import utilities.WaitUtility;

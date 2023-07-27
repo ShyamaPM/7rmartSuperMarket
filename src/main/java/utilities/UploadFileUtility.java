@@ -5,7 +5,6 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
-
 import org.openqa.selenium.WebElement;
 
 public class UploadFileUtility 
@@ -20,7 +19,6 @@ public class UploadFileUtility
 		element.click();
 		StringSelection ss = new StringSelection(filePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-		
 		Robot robot = new Robot();
 		robot.delay(250);
 		robot.keyPress(KeyEvent.VK_ENTER);

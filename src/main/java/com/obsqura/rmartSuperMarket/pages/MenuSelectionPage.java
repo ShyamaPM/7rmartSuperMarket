@@ -1,7 +1,6 @@
-package com.obsqura.rmartSuperMarket;
+package com.obsqura.rmartSuperMarket.pages;
 
 import java.util.List;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,6 +23,7 @@ public class MenuSelectionPage
 	@FindBy(xpath = "//i[contains(@class,'fa-shopping-basket')]") private WebElement manageOrders;
 	@FindBy(xpath = "//li[@class='nav-item']//p[text() ='groceries']") private WebElement groceries;
 	@FindBy(xpath = "//i[contains(@class,'fa-money-bill-alt')]") private WebElement manageExpense;
+	@FindBy(xpath = "(//i[contains(@class,'fa-circle')])[3]") private WebElement manageExpenseSubMenu;
 	@FindBy(xpath = "//i[contains(@class,'fa-tasks')]") private WebElement manageProduct;
 	@FindBy(xpath = "//i[contains(@class,'fa-user-check')]") private WebElement verifyUsers;
 	@FindBy(xpath = "(//i[contains(@class,'fa-angle-left')])[3]") private WebElement manageUsers;
@@ -68,6 +68,10 @@ public class MenuSelectionPage
 	public void clickOnManageExpense()
 	{
 		manageExpense.click();
+	}
+	public void clickOnSubMenuManageExpense()
+	{
+		manageExpenseSubMenu.click();
 	}
 	public void clickOnManageProduct()
 	{

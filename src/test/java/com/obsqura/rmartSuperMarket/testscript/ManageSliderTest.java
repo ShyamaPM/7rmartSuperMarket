@@ -1,9 +1,10 @@
-package com.obsqura.rmartSuperMarket;
+package com.obsqura.rmartSuperMarket.testscript;
 
 import static org.testng.Assert.assertTrue;
-
 import org.testng.annotations.Test;
-
+import com.obsqura.rmartSuperMarket.pages.LoginPage;
+import com.obsqura.rmartSuperMarket.pages.ManageSliderPage;
+import com.obsqura.rmartSuperMarket.pages.MenuSelectionPage;
 import utilities.ExcelUtility;
 
 public class ManageSliderTest extends Base
@@ -25,8 +26,7 @@ public class ManageSliderTest extends Base
 		manageSilderPage.enterTextDataInLinkTextField();
 		manageSilderPage.clickOnSaveButton();
 		boolean isAlertMessageDisplayed = manageSilderPage.successalertMessageDisplay();
-		assertTrue(isAlertMessageDisplayed, "Some issue while adding the doc or link");
-		
+		assertTrue(isAlertMessageDisplayed, "Some issue while adding the doc or link");	
 	}
 
 }

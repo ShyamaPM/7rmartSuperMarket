@@ -4,11 +4,14 @@
   <parameter name="browser" value="chrome"/>
   <parameter name="username" value="admin"/>
   <parameter name="password" value="test"/>
+  <listeners>
+		<listener class-name="Listners.ListnerUtility" />
+	</listeners>
   <test thread-count="5" name="Test">
      <classes>
-        <class name="com.obsqura.rmartSuperMarket.ManageCategoryTest"> 
+        <class name="com.obsqura.rmartSuperMarket.testscript.ManageExpenseTest"> 
            <methods>
-                <include name="verifyWhetherTheUserAbleToAddValuesInManageCategory">
+                <include name="verifyWhetherUserAbletoSubmitTheManageExpence">
 				</include>
 		   </methods>
         </class>
