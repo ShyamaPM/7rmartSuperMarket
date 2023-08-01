@@ -48,29 +48,36 @@ public class ManageCategoryPage
 	{
 		UploadFileUtility uploadFileUtility = new UploadFileUtility();
 		uploadFileUtility.fileUploadUsingSendKeys(chooseFileButton,GeneralUtility.IMAGEFILEFORMANAGECATEGORYCATEGORYPAGE);
+		PageUtility pageUtility = new PageUtility();
+		pageUtility.scrollBy(driver);
 		return this;
 	}
-	public void clickOnNoRadioButtonOfShowOnTopMenuField() 
+	public ManageCategoryPage clickOnNoRadioButtonOfShowOnTopMenuField() 
 	{
 		PageUtility pageUtility = new PageUtility();
 		pageUtility.scrollBy(driver);
+		WaitUtility waitUtility = new WaitUtility();
+		waitUtility.waitForElementClickable(driver,showOnTopMenuNoRadioButton);
 		showOnTopMenuNoRadioButton.click();
+		return this;
 	}
-	public void clickOnNoRadioButtonOfShowOnLeftMenuField() 
+	public ManageCategoryPage clickOnNoRadioButtonOfShowOnLeftMenuField() 
 	{
 		PageUtility pageUtility = new PageUtility();
 		pageUtility.scrollBy(driver);
 		WaitUtility waitUtility = new WaitUtility();
 		waitUtility.waitForElementClickable(driver,showOnLeftMenuNoRadioButton);
 		showOnLeftMenuNoRadioButton.click();
+		return this;
 	}
-	public void clickOnSaveButton() 
+	public ManageCategoryPage clickOnSaveButton() 
 	{
 		PageUtility pageUtility = new PageUtility();
 		pageUtility.scrollBy(driver);
 		WaitUtility waitUtility = new WaitUtility();
 		waitUtility.waitForElementClickable(driver,saveButton);
 		saveButton.click();
+		return this;
 	}
 	public boolean successalertMessageDisplay() 
 	{

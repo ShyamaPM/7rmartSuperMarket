@@ -9,9 +9,9 @@
 	</listeners>
   <test thread-count="5" name="Test">
      <classes>
-        <class name="com.obsqura.rmartSuperMarket.testscript.ManageExpenseTest"> 
+        <class name="com.obsqura.rmartSuperMarket.testscript.PushNotificationTest"> 
            <methods>
-                <include name="verifyWhetherUserAbletoSubmitTheManageExpence">
+                <include name="verifyWhetherUserAbleToSendTheNotification">
 				</include>
 		   </methods>
         </class>

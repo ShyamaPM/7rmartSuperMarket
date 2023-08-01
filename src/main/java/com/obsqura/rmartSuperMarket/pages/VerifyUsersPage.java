@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WaitUtility;
+
 public class VerifyUsersPage 
 {
 	public WebDriver driver;
@@ -25,22 +27,27 @@ public class VerifyUsersPage
 	@FindAll(@FindBy(xpath = "//table[contains(@class,'table-bordered')]//td")) private List<WebElement> tableData;
 	
 	
-	public void clickOnSearchBox()
+	public VerifyUsersPage clickOnSearchBox()
 	{
 		searchBox.click();
+		return this;
 	}
 
-	public void enterNameinSearchField(String name)
+	public VerifyUsersPage enterNameinSearchField(String name)
 	{
 		nameTextField.sendKeys(name);
+		return this;
 	}
 	
-	public void clickOnSearchButton()
+	public VerifyUsersPage clickOnSearchButton()
 	{
+		WaitUtility waitUtility = new WaitUtility();
+		waitUtility.waitForElementClickable(driver,searchButton);
 		searchButton.click();
+		return this;
 	}
 	
-	public void isTheSearcNameExistsInTheVerifyUsersList(String name, boolean flag) 
+	public VerifyUsersPage isTheSearcNameExistsInTheVerifyUsersList(String name, boolean flag) 
 	{
 		List<String> nameList = new ArrayList<>();
 		for(WebElement rowValue:tableData)
@@ -53,6 +60,7 @@ public class VerifyUsersPage
 			    break;
 			}
 		}
+		return this;
 	}
 	
 	public String isTheSearcNameExistsInTheVerifyUsersList() 
